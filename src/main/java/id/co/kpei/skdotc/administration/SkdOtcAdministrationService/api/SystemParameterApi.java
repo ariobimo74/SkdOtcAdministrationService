@@ -1,5 +1,6 @@
 package id.co.kpei.skdotc.administration.SkdOtcAdministrationService.api;
 
+import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.model.dto.SystemParameterDto;
 import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.model.entity.SystemParameter;
 import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.service.SystemParameterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,7 @@ public class SystemParameterApi
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public SystemParameter addSystemParameter(@RequestBody SystemParameter systemParameter)
+    public SystemParameter addSystemParameter(@RequestBody SystemParameterDto systemParameter)
     {
         return systemParameterService.addSystemParameter(systemParameter);
     }
@@ -59,7 +60,7 @@ public class SystemParameterApi
     @PutMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.OK)
     public SystemParameter editSystemParameter(@PathVariable(value = "id") int id,
-                                               @RequestBody SystemParameter systemParameter)
+                                               @RequestBody SystemParameterDto systemParameter)
     {
         return systemParameterService.editSystemParameter(id, systemParameter);
     }

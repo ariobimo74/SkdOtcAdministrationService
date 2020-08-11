@@ -62,7 +62,7 @@ public class SystemParameter
     @Column(name = "id")
     private int id;
 
-    @Column(name = "param", length = 100)
+    @Column(name = "param", length = 100, nullable = false)
     private String param;
 
     @Column(name = "value")

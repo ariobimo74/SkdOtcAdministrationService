@@ -1,5 +1,9 @@
 package id.co.kpei.skdotc.administration.SkdOtcAdministrationService.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
 public class SystemParameterDto
@@ -9,6 +13,9 @@ public class SystemParameterDto
     private double value;
     private String note;
     private String status;
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date last_update;
 
     public SystemParameterDto() {

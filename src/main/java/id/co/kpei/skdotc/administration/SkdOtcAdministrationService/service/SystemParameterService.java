@@ -17,9 +17,9 @@ public interface SystemParameterService
 
     Optional<SystemParameterDto> getById(int id);
 
-    SystemParameter addSystemParameter(SystemParameter systemParameter);
+    SystemParameter addSystemParameter(SystemParameterDto systemParameter);
 
-    SystemParameter editSystemParameter(int id, SystemParameter systemParameter);
+    SystemParameter editSystemParameter(int id, SystemParameterDto systemParameter);
 
     void deleteSystemParameter(int id);
 }

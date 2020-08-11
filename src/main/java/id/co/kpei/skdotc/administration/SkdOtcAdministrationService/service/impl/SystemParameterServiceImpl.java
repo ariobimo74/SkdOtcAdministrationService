@@ -64,26 +64,27 @@ public class SystemParameterServiceImpl implements SystemParameterService
     }
 
     @Override
-    public SystemParameter addSystemParameter(SystemParameter systemParameter) {
+    public SystemParameter addSystemParameter(SystemParameterDto systemParameter) {
         SystemParameter newSystemParameter = new SystemParameter();
 
         newSystemParameter.setParam(systemParameter.getParam());
         newSystemParameter.setStatus(systemParameter.getStatus());
         newSystemParameter.setValue(systemParameter.getValue());
         newSystemParameter.setNote(systemParameter.getNote());
+        newSystemParameter.setLastUpdate(systemParameter.getLast_update());
 
         return systemParameterRepository.save(newSystemParameter);
     }
 
     @Override
-    public SystemParameter editSystemParameter(int id, SystemParameter systemParameter) {
+    public SystemParameter editSystemParameter(int id, SystemParameterDto systemParameter) {
         SystemParameter newSystemParameter = systemParameterRepository.findById(id).get();
 
-        newSystemParameter.setLastUpdate(new Date());
         newSystemParameter.setParam(systemParameter.getParam());
         newSystemParameter.setStatus(systemParameter.getStatus());
         newSystemParameter.setValue(systemParameter.getValue());
         newSystemParameter.setNote(systemParameter.getNote());
+        newSystemParameter.setLastUpdate(systemParameter.getLast_update());
 
         return systemParameterRepository.save(newSystemParameter);
     }

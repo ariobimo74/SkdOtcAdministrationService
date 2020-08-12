@@ -1,5 +1,6 @@
 package id.co.kpei.skdotc.administration.SkdOtcAdministrationService.api;
 
+import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.api.exception.NotFoundException;
 import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.model.dto.SystemParameterDto;
 import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.model.entity.SystemParameter;
 import id.co.kpei.skdotc.administration.SkdOtcAdministrationService.service.SystemParameterService;
@@ -24,7 +25,7 @@ public class SystemParameterApi
     @GetMapping(path = "/{id}")
     public ResponseEntity<?> getById(@PathVariable(value = "id") int id)
     {
-        return new ResponseEntity<>(systemParameterService.getById(id), HttpStatus.OK);
+        return new ResponseEntity<>(systemParameterService.getById(id).orElseThrow(() -> new NotFoundException(id)), HttpStatus.OK);
     }
 
     @GetMapping(path = "/paging")
